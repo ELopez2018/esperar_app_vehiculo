@@ -1,0 +1,4 @@
+enum StateProgress {
+  initial,
+  loading,
+}
