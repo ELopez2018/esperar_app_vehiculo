@@ -67,97 +67,99 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Form(
                       key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          InputCustom(
-                            label: 'Usuario',
-                            controller: bloc.user,
-                            validator: validateNotEmpty,
-                          ),
-                          InputCustom(
-                            label: 'Contraseña',
-                            controller: bloc.password,
-                            validator: validatedPassword,
-                          ),
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: GestureDetector(
-                              onTap: () => bloc.setShowRecoverPassword(),
-                              child: const Text(
-                                'Olvidar contraseña',
-                                style: TextStyle(
-                                  color: primaryColor,
-                                  fontWeight: FontWeight.w700,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InputCustom(
+                              label: 'Usuario',
+                              controller: bloc.user,
+                              validator: validateNotEmpty,
+                            ),
+                            InputCustom(
+                              label: 'Contraseña',
+                              controller: bloc.password,
+                              validator: validatedPassword,
+                            ),
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: GestureDetector(
+                                onTap: () => bloc.setShowRecoverPassword(),
+                                child: const Text(
+                                  'Olvidar contraseña',
+                                  style: TextStyle(
+                                    color: primaryColor,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 30),
-                            child: ButtonCustom(
-                              text: 'Iniciar sesión',
-                              color: Colors.white,
-                              onTap: login,
-                              background: primaryColor,
-                              width: size.width,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 30),
+                              child: ButtonCustom(
+                                text: 'Iniciar sesión',
+                                color: Colors.white,
+                                onTap: login,
+                                background: primaryColor,
+                                width: size.width,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10),
-                            child: Row(
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      color: primaryColor,
+                                      height: 2,
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 10),
+                                    child: Text('o inicie session con'),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      color: primaryColor,
+                                      height: 2,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
-                                  child: Container(
-                                    color: primaryColor,
-                                    height: 2,
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: primaryColor,
+                                    ),
                                   ),
+                                  child: Image.asset('assets/icons/google.png'),
                                 ),
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Text('o inicie session con'),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    color: primaryColor,
-                                    height: 2,
+                                const SizedBox(width: 10),
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: primaryColor,
+                                    ),
                                   ),
+                                  child:
+                                      Image.asset('assets/icons/microsoft.png'),
                                 )
                               ],
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 50,
-                                height: 50,
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: primaryColor,
-                                  ),
-                                ),
-                                child: Image.asset('assets/icons/google.png'),
-                              ),
-                              const SizedBox(width: 10),
-                              Container(
-                                width: 50,
-                                height: 50,
-                                padding: const EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: primaryColor,
-                                  ),
-                                ),
-                                child:
-                                    Image.asset('assets/icons/microsoft.png'),
-                              )
-                            ],
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

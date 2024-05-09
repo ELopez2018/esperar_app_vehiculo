@@ -12,14 +12,18 @@ class SplashProvider extends ChangeNotifier {
   final LocalStorageInterface localStorageInterface;
 
   Future<bool?> validate() async {
+    final accessToken = await localStorageInterface.getAccessToken();
     try {
-      final user = await userInterface.getUserByToken();
-      if (user != null) {
-        return true;
+      if (accessToken != null) {
+        final user = await userInterface.getUserByToken();
+        if (user != null) {
+          return true;
+        }
+        localStorageInterface.clean();
       }
-      localStorageInterface.clean();
       return false;
     } on String catch (_) {
+      print(_);
       return null;
     }
   }

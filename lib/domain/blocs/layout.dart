@@ -1,3 +1,4 @@
+
 import 'dart:async';
 import 'dart:convert';
 import 'package:esperar_drivers/domain/entities/driver/driver_location.dart';
@@ -93,6 +94,7 @@ void _initLocationTracking() {
     socketService.getStompClient().subscribe(
           destination: '/topic/route/$id',
           callback: (StompFrame data) {
+            print(data);
             final driverJson = jsonDecode(data.body!);
             final driver = DriverLocation.fromJson(driverJson);
             updateMarker(
